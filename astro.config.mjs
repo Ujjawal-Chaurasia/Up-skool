@@ -6,8 +6,8 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  // site: 'https://astronaut.github.io',
-  // base: '/my-repo',
+  site: 'https:/Ujjawal-Chaurasia/.github.io',
+  base: '/Up-skool',
   output: "static",
   integrations: [tailwind(), react()],
   adapter: node({
