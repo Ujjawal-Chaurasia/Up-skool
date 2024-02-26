@@ -1,0 +1,788 @@
+---
+import CarouselComponent from "../components/Carousel";
+import Layout from "../layouts/Layout.astro";
+import SignupForm from "../components/SignupForm";
+import TryfreeForm from "../components/TryfreeForm";
+import Couponcode from "../components/Couponcode.jsx";
+import Countdowntimer from "../components/Countdowntimer.jsx"
+import Countdowntimertwo from "../components/Countdowntimertwo.jsx"
+---
+
+<Layout title="Upskool: The new age of Learning">
+  <body>
+    <header>
+      <nav class="py-[10px]" >
+        <div class="flex sm:h-[120px] gap-4  justify-center ">
+          <div class="sm:p-[10px] flex items-center">
+            <div class="sm:w-[79px] sm:h-[79px] w-[40px] h-[40px]">
+              <img
+                src="/UP_SKOOL_LOGO.png"
+                class="w-[100%] h-[100%]"
+                alt="logo"
+              />
+            </div>
+          </div>
+          <div class="max-lg:hidden p-[10px] flex items-center">
+            <ul class="flex font-bold">
+              <li class="px-[15px] py-[13px]">
+                <a href="#pricing"> Pricing</a>
+              </li>
+              <li class="group px-[15px] py-[13px] flex items-center relative">
+                Subjects <span
+                  ><img
+                    src="/dropdownicon.png"
+                    class="pl-[8px]"
+                    alt="downicon"
+                  /></span
+                >
+                <div
+                  class="group-hover:block hidden font-normal text-[12px] absolute bg-white top-11 left-0"
+                >
+                  <ul>
+			
+                    <a
+                      href="https://www.up-skool.com/blog/how-can-upskool-improve-math-for-your-child/"
+                      ><li class="px-10 py-2 hover:bg-slate-500">Math</li></a
+                    >
+                    <a
+                      href="https://www.up-skool.com/blog/top-8-ways-how-upskool-can-improve-english-for-your-child/"
+                      ><li class="px-10 py-2 hover:bg-slate-500">English</li></a
+                    >
+                  </ul>
+                </div>
+              </li>
+              <li class="px-[15px] py-[13px]">
+                <a href="	https://www.up-skool.com/blog/"> Blog</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sm:p-[10px] flex items-center">
+            <a
+              href="https://manage.up-skool.com/login"
+              class="px-[15px] max-sm:text-[14px]  py-[5px] sm:px-[30px] md:px-[50px]  sm:py-[10px] bg-[#9747FF] text-white rounded-md font-semibold"
+              >Login</a
+            >
+          </div>
+          <div class="sm:p-[10px] flex items-center">
+            <button
+              onclick="showsignupform()"
+              class="px-[15px] max-sm:text-[14px] py-[5px] sm:px-[30px] md:px-[50px]  sm:py-[10px] text-[#9747FF] bg-white border border-[#9747FF] rounded-md font-semibold"
+              >Sign Up</button
+            >
+          </div>
+
+          <div class=" sm:p-[10px] flex items-center">
+            <a href="tel:6292005000">
+              <div class=" w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]">
+                <img src="/contacting.png" alt="icon" />
+              </div>
+            </a>
+          </div>
+          <div class=" sm:p-[10px] flex items-center">
+            <a
+              class="elementor-icon"
+              href="mailto:contact@up-skool.com?subject=Seeking%20More%20Information&body=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Up-Skool%27s%20services
+				"
+            >
+              <div class="w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]">
+                <img src="/email.png" alt="icon" />
+              </div>
+            </a>
+          </div>
+          <button class="lg:hidden  flex items-center" onclick="opensidebar()">
+            <img src="/menuicon.png" alt="menu-bar"/>
+          </button>
+        </div>
+      </nav>
+      <div class="menu-mobile bg-white z-50 fixed top-0 hidden w-[50%] h-[100%] translate-x-full ">
+        <button class="p-[15px] inline-block" onclick="closesidebar()">
+          <img src="/close.png"  alt="close-icon"/>
+        </button>
+          <ul class="flex flex-col font-bold sm:items-center sm:text-[20px]">
+            <li class="px-[15px] py-[13px]" onclick="closesidebar()">
+              <a href="#pricing"> Pricing</a>
+            </li>
+            <li class="px-[15px] py-[13px] flex items-center relative">
+              Subjects <span
+              onclick="toggledropdown()"
+                ><img
+                  src="/dropdownicon.png"
+                  class="pl-[8px] cursor-pointer"
+                  alt="downicon"
+                /></span
+              >
+              <div
+                class=" showdropdown hidden font-normal text-[12px] sm:text-[16px] absolute bg-white top-11 left-16"
+                onclick="closesidebar()"
+              >
+                <ul>
+                  <a
+                    href="https://www.up-skool.com/blog/how-can-upskool-improve-math-for-your-child/"
+                    ><li class="px-10 py-2 hover:bg-slate-500">Math</li></a
+                  >
+                  <a
+                    href="https://www.up-skool.com/blog/top-8-ways-how-upskool-can-improve-english-for-your-child/"
+                    ><li class="px-10 py-2 hover:bg-slate-500">English</li></a
+                  >
+                </ul>
+              </div>
+            </li>
+            <li class="px-[15px] py-[13px]" onclick="closesidebar()">
+              <a href="	https://www.up-skool.com/blog/"> Blog</a>
+            </li>
+          </ul>
+      </div>
+    </header>
+    <main>
+      <section
+        class="bg-[url('/ribbon1.png')] bg-center bg-no-repeat bg-cover px-[10px] sm:pb-2 pb-7 text-white"
+      >
+        <div class="flex flex-col p-[10px] items-center gap-4">
+          <div>
+            <h3 class="sm:text-[20px] flex items-center gap-2">
+              <span
+                ><img
+                  src="/clock.svg"
+                  class="w-[20px] h-[20px]"
+                  alt="clockimg"
+                /></span
+              > Get 20% off on the Subscription Plan
+            </h3>
+          </div>
+          <div
+            class="flex max-sm:flex-col justify-center items-center gap-y-8 gap-14"
+          >
+		  	<Couponcode client:load/>
+			<Countdowntimer client:load/>
+          </div>
+        </div>
+      </section>
+      <section
+        class="bg-[#eafaf2] relative pb-[50px] md:pb-[150px] pt-[20px] md:pt-[100px]"
+      >
+        <div class="flex max-sm:flex-col sm:mx-12 justify-center">
+          <div
+            class="flex-1 flex flex-col justify-center gap-3 sm:gap-5 pl-3 sm:pl-12 max-sm:order-1"
+          >
+            <h2
+              class="text-[28px] max-sm:pt-4 md:text-[40px] font-extrabold leading-tight"
+            >
+              Nurture brilliance for <br /><span class="text-[#8919E7]">
+                your children!</span>
+            </h2>
+            <p class="max-sm:text-[14px]">
+              Upskool is an educational yet innovative online learning platform.
+              We aim to provide visual learning experiences to children to
+              inculcate high-thinking skills. With a child-friendly interface,
+              Upskool shapes minds for an inspiring revolution!
+            </p>
+            <button
+              onclick="showtryfreeform()"
+              class="underline self-start text-[12px] sm:text-[15px] leading-none px-[25px] sm:px-[50px] py-3 bg-[#974BFB] rounded-md text-white font-semibold"
+              >Try For Free</button
+            >
+          </div>
+          <div class="flex-1 w-[100%] h-[250px] p-[10px]">
+            <img src="/home.svg" class="w-[100%] h-[100%]" alt="home" />
+          </div>
+        </div>
+        <div class="w-[100%] h-[50px] sm:h-[50px]">
+          <img src="/wave.svg" class="absolute bottom-[0px]" alt="waved" />
+        </div>
+      </section>
+      <section class="py-[10px]">
+        <div
+          class="flex flex-col items-center justify-center max-w-[855px] text-center mx-auto gap-4 p-[10px] pt-0"
+        >
+          <h2 class="font-extrabold text-[24px] sm:text-[32px]">
+            Why is Upskool the best choice for your child's education?
+          </h2>
+          <p class="mb-[14px] max-sm:text-[14px]">
+            At Upskool, we infuse the national curriculum into a new way of
+            learning. Discover a better future for your kids with us.
+          </p>
+        </div>
+      </section>
+      <section class="sm:mx-14 max-sm:px-[10px] py-3">
+        <div class="flex max-sm:flex-col">
+          <div class="flex-1 p-[10px] flex justify-center">
+            <div class="mb-2">
+              <img src="/homeboyimage.png" alt="boyimg" />
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-col gap-3 mt-[25px]">
+              <div class="shadow-[0_0_10px_0px_rgba(225,225,225,0.5)] px-3">
+                <div class="flex gap-3 py-3">
+                  <div class="w-[21px] h-[21px]">
+                    <img src="/check-double-solid.svg" alt="checkicon" />
+                  </div>
+                  <p class="font-semibold text-[15px]">
+                    Interactive learning environment.
+                  </p>
+                </div>
+              </div>
+              <div class="shadow-[0_0_10px_0px_rgba(225,225,225,0.5)] px-3">
+                <div class="flex gap-3 py-3">
+                  <div class="w-[21px] h-[21px] flex-shrink-0">
+                    <img
+                      src="/check-double-solid.svg"
+                      class="w-[21px] h-[24px]"
+                      alt="checkicon"
+                    />
+                  </div>
+                  <p class="font-semibold text-[15px]">
+                    Personalised learning experiences for each student.
+                  </p>
+                </div>
+              </div>
+              <div class="shadow-[0_0_10px_0px_rgba(225,225,225,0.5)] px-3">
+                <div class="flex gap-3 py-3">
+                  <div class="w-[21px] h-[21px]">
+                    <img src="/check-double-solid.svg" alt="checkicon" />
+                  </div>
+                  <p class="font-semibold text-[15px]">
+                    Empowers through understanding
+                  </p>
+                </div>
+              </div>
+              <div class="shadow-[0_0_10px_0px_rgba(225,225,225,0.5)] px-3">
+                <div class="flex gap-3 py-3">
+                  <div class="w-[21px] h-[21px]">
+                    <img src="/check-double-solid.svg" alt="checkicon" />
+                  </div>
+                  <p class="font-semibold text-[15px]">
+                    Proper mentorship and guidance.
+                  </p>
+                </div>
+              </div>
+              <div class="shadow-sm px-3">
+                <div class="flex gap-3 py-3">
+                  <div class="w-[21px] h-[21px]">
+                    <img src="/check-double-solid.svg" alt="checkicon" />
+                  </div>
+                  <p class="font-semibold text-[15px]">
+                    Believes in the power of feedback.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div>
+          <h2 class="text-center text-[32px] font-bold">
+            How does the program works?
+          </h2>
+          <div class="flex flex-col p-[10px] items-center gap-6">
+            <div
+              class="bg-[url('/laptop_rectangle.png')] bg-center bg-no-repeat bg-contain md:w-[717px] md:h-[429px] w-[330px] h-[250px]"
+            >
+              <div
+                class="flex justify-center items-center md:h-[429px] h-[250px]"
+              >
+                <div class="sm:w-[87px] sm:h-[87px] w-[44px] h-[44px]">
+                  <img
+                    src="/play-button.png"
+                    class="max-w-[100%] max-h-[100%]"
+                    alt="play"
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              onclick="showtryfreeform()"
+              class="underline text-[15px] leading-none px-[50px] py-3 bg-[#974BFB] rounded-md text-white font-semibold"
+              >Try For Free</button
+            >
+            <div></div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-[#0BCDD70A]">
+        <h2 class="text-center font-bold text-[24px] sm:text-[32px]">
+          Discover how learning becomes enjoyable at Upskool!
+        </h2>
+        <div class="max-w-[1140px] mx-auto px-[10px]">
+          <div class="sm:py-[50px] sm:mx-[65px]">
+            <div class="flex max-md:flex-col max-md:items-center">
+              <div class="flex-1 md:p-[10px]">
+                <img
+                  src="/schoolboy.jpg"
+                  class="md:w-[300px] md:h-[256px] w-full h-full"
+                  alt="schoolboy"
+                />
+              </div>
+              <div
+                class="relative max-md:items-center flex-1 flex flex-col sm:pt-10 md:gap-4 md:pl-[30px] md:border-l-2 border-black border-dotted"
+              >
+                <div
+                  class="max-md:hidden absolute top-[-36px] left-[-26px] z-10 w-[50px] h-[50px] rounded-full bg-white"
+                >
+                  <img src="/number1.png" alt="one" />
+                </div>
+                <h2
+                  class="max-md:p-[10px] text-[24px] text-[#54595F] font-bold"
+                >
+                  Fun learning
+                </h2>
+                <p class="max-md:text-center">
+                  Our formula for top-notch learning is fun and laughter to keep
+                  your child engaged and excited about learning
+                </p>
+              </div>
+            </div>
+            <div class="flex max-md:flex-col max-lg:mt-[20px]">
+              <div
+                class="flex-1 max-md:order-1 p-[10px] flex flex-col gap-2 pt-5 max-md:items-center"
+              >
+                <h2 class="text-[24px] text-[#54595F] font-bold">Excellence</h2>
+                <p class="max-md:text-center">
+                  We always keep our children one step ahead from School.
+                  Upskool embraces the different learning patterns of children
+                  and keeps them learned in advance.
+                </p>
+              </div>
+              <div
+                class="relative flex-1 md:pl-[30px] md:border-l-2 border-black border-dotted flex justify-center max-md:pt-5"
+              >
+                <div
+                  class="max-md:hidden absolute top-[-32px] left-[-26px] z-10 w-[50px] h-[50px] rounded-full bg-white"
+                >
+                  <img src="/number2.png" alt="one" />
+                </div>
+                <img
+                  src="/never-stop-learning.jpg"
+                  class="md:w-[300px] md:h-[169px] w-full h-full"
+                  alt="schoolboy"
+                />
+              </div>
+            </div>
+            <div class="flex max-md:flex-col max-md:items-center">
+              <div class="flex-1 p-[10px]">
+                <img
+                  src="/boys.jpg"
+                  class="md:w-[300px] md:h-[199.8px] w-full h-full"
+                  alt="schoolboy"
+                />
+              </div>
+              <div
+                class="relative max-md:items-center flex-1 flex flex-col md:pt-12 gap-4 md:pl-[30px] md:border-l-2 border-black border-dotted max-md:pb-7"
+              >
+                <div
+                  class="max-md:hidden absolute top-[-25px] left-[-26px] z-10 w-[50px] h-[50px] rounded-full bg-white"
+                >
+                  <img src="/number3.png" alt="one" />
+                </div>
+                <h2 class="text-[24px] text-[#54595F] font-bold">
+                  Brighter Future
+                </h2>
+                <p class="max-md:text-center">
+                  We educate to mould young minds to make them tomorrow’s great
+                  leaders and fuel growth and knowledge
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div
+          class="flex flex-col bg-[url('/ribbon2.jpeg')] bg-center bg-no-repeat bg-cover text-white gap-6 font-bold pb-20 pt-5"
+        >
+          <h2 class="text-center text-[28px] sm:text-[32px]">
+            Subscription ends in
+          </h2>
+		  <Countdowntimertwo client:load/>
+        </div>
+      </section>
+      <section>
+        <h2 class="text-center font-bold text-[32px] pt-10 pb-5">
+          What Do Our Customers Says
+        </h2>
+        <CarouselComponent client:load />
+      </section>
+      <section>
+        <div
+          class="sm:py-[10px] py-[24px] bg-[url('/ribbon3.png')] bg-center bg-no-repeat bg-cover flex max-sm:flex-col gap-4"
+        >
+          <div
+            class="flex-1 flex flex-col text-white p-[10px] ml-[20px] sm:ml-[85px] gap-4"
+          >
+            <h2 class="font-bold text-[24px]">Get Started for free</h2>
+            <p class="text-sm">
+              Lorem ipsum dolor sit amet consectetur. Cursus elit quis sit <br
+              /> suspendisse
+            </p>
+          </div>
+          <div class="flex-1 self flex justify-center items-center">
+            <div>
+              <button
+                onclick="showtryfreeform()"
+                                class="underline px-[30px] py-3 bg-[#9747FF] rounded-3xl text-white font-bold"
+                >Try For Free</button
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 class="text-center font-bold text-[32px] pt-10">Why Up-Skool?</h2>
+        <div
+          class="flex max-sm:flex-col max-sm:items-center justify-center gap-4 sm:gap-8 py-10"
+        >
+          <div class="flex flex-col p-[10px] items-center gap-4 w-[324px]">
+            <div>
+              <img
+                src="/cbseimage.png"
+                alt="cbseimage"
+                class="w-[216px] h-[162px]"
+              />
+            </div>
+            <p class="mb-[14px]">
+              Affiliated with <span class="text-[#9747FF]">CBSE</span>
+            </p>
+          </div>
+          <div class="max-md:hidden">
+            <img src="Line-680.png" alt="line" />
+          </div>
+          <div class="flex flex-col p-[10px] items-center gap-4 w-[324px]">
+            <div>
+              <img
+                src="/cbseimage.png"
+                alt="cbseimage"
+                class="w-[216px] h-[162px]"
+              />
+            </div>
+            <p class="mb-[14px]">
+              Affiliated with <span class="text-[#9747FF]">CBSE</span>
+            </p>
+            <div
+              class="underline text-white bg-[#9747FF] px-[30px] py-[12px] leading-none rounded-md"
+            >
+              <button onclick="showtryfreeform()"> Try For Free</button>
+            </div>
+          </div>
+          <div class="max-md:hidden">
+            <img src="Line-680.png" alt="line" />
+          </div>
+          <div class="flex flex-col p-[10px] items-center gap-4 w-[324px]">
+            <div>
+              <img
+                src="/cbseimage.png"
+                alt="cbseimage"
+                class="w-[216px] h-[162px]"
+              />
+            </div>
+            <p class="mb-[14px]">
+              Affiliated with <span class="text-[#9747FF]">CBSE</span>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="pricing">
+        <h2
+          class="text-center font-bold text-[24px] md:text-[32px] mt-14 py-5 underline"
+        >
+          Plans And Pricing
+        </h2>
+        <div
+          class="flex max-md:flex-col items-center justify-center gap-5 pt-[30px] pb-[50px]"
+        >
+          <div
+            class="p-[5px] w-[320px] mx-[30px] border-[2px] border-t-[15px] rounded-t-xl rounded-b-lg shadow-lg"
+          >
+            <div class="flex flex-col text-center">
+              <h3 class="text-[28px] py-[20px] font-bold leading-none">
+                Monthly
+              </h3>
+              <div class="text-[37px] py-[30px] font-bold leading-none">
+                ₹ 599
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 text-sm text-center">
+              <div class="mx-[15px] flex items-center">
+                <span
+                  ><img
+                    src="/check.png"
+                    alt="check"
+                    class="w-[18px] h-[18px] mr-3"
+                  /></span
+                > Access to Upskool practice Questions
+              </div>
+              <div class="mx-[15px] flex items-center">
+                <span
+                  ><img
+                    src="/check.png"
+                    alt="check"
+                    class="w-[18px] h-[18px] mr-3"
+                  /></span
+                > Analytics for your kid
+              </div>
+              <div class="mx-[15px] flex items-center">
+                <span
+                  ><img
+                    src="/check.png"
+                    alt="check"
+                    class="w-[18px] h-[18px] mr-3"
+                  /></span
+                > Monthly Reports
+              </div>
+            </div>
+            <div
+              class="py-[30px] px-4 cursor-pointer"
+              onclick="showtryfreeform()"
+            >
+              <div
+                class="px-[70px] py-[12px] bg-[#9747FF] leading-none underline rounded-md text-white text-center"
+              >
+                Try For Free
+              </div>
+            </div>
+          </div>
+          <div
+            class="p-[5px] w-[320px] mx-[30px] border-[2px] border-t-[15px] rounded-t-xl rounded-b-lg shadow-lg"
+          >
+            <div class="flex flex-col text-center">
+              <h3 class="text-[28px] py-[20px] font-bold leading-none">
+                Annual
+              </h3>
+              <div class="text-[37px] py-[30px] font-bold leading-none">
+                ₹ 4321 <span class="text-[15px] text-[#6e63cf]">(40% off)</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 text-sm text-center">
+              <div class="mx-[15px] flex items-center">
+                <span
+                  ><img
+                    src="/check.png"
+                    alt="check"
+                    class="w-[18px] h-[18px] mr-3"
+                  /></span
+                > Access to Upskool practice Questions
+              </div>
+              <div class="mx-[15px] flex items-center">
+                <span
+                  ><img
+                    src="/check.png"
+                    alt="check"
+                    class="w-[18px] h-[18px] mr-3"
+                  /></span
+                > Analytics for your kid
+              </div>
+              <div class="mx-[15px] flex items-center">
+                <span
+                  ><img
+                    src="/check.png"
+                    alt="check"
+                    class="w-[18px] h-[18px] mr-3"
+                  /></span
+                > Monthly Reports
+              </div>
+            </div>
+            <div
+              class="py-[30px] px-4 cursor-pointer"
+              onclick="showtryfreeform()"
+            >
+              <div
+                class="px-[70px] py-[12px] bg-[#9747FF] leading-none underline rounded-md text-white text-center"
+              >
+                 Try For Free
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="fixed bottom-8 right-6">
+        <a
+          href="https://wa.me/6292005000?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Up-Skool%27s%20services"
+          target="_blank"
+        >
+          <img src="/whatsapphelp.png" alt="whatsappicon" />
+        </a>
+      </div>
+      <div
+        class="overlaycontainer w-[100%] h-[100vh] bg-[#00000080] fixed top-[0%] -z-50 opacity-0"
+      >
+      </div>
+
+      <div
+        class="overlaysignupform fixed -top-[150%] left-[50%] -translate-x-1/2 z-50"
+      >
+        <SignupForm client:load />
+      </div>
+
+      <div
+        class="overlaytryform z-50 fixed -top-[150%] flex justify-center items-center w-[100vw] max-sm:px-2 h-[100vh]"
+      >
+        <TryfreeForm client:load />
+      </div>
+    </main>
+
+    <footer class="bg-black text-white">
+      <div class="py-5 pr-5 flex max-md:flex-col min-h-[285px]">
+        <div class="flex-1 p-[10px] flex flex-col items-center gap-5">
+          <div>
+            <img
+              src="/UP_SKOOL_LOGO.png"
+              alt="logo"
+              class="w-[100px] h-[100px]"
+            />
+          </div>
+          <div class="flex gap-1">
+            <div
+              class="bg-[#F1EFFF] w-[30px] h-[30px] rounded-full flex items-center justify-center"
+            >
+              <a href="#">
+                <img
+                  src="/facebook.png"
+                  class="w-[13.13px] h-[15px]"
+                  alt="facebook"
+                /></a
+              >
+            </div>
+            <div
+              class="bg-[#F1EFFF] w-[30px] h-[30px] rounded-full flex items-center justify-center"
+            >
+              <a href="#">
+                <img
+                  src="/twitter.png"
+                  class="w-[13.13px] h-[15px]"
+                  alt="twitter"
+                /></a
+              >
+            </div>
+            <div
+              class="bg-[#F1EFFF] w-[30px] h-[30px] rounded-full flex items-center justify-center"
+            >
+              <a href="#">
+                <img
+                  src="/youtube.png"
+                  class="w-[13.13px] h-[15px]"
+                  alt="youtube"
+                /></a
+              >
+            </div>
+            <div
+              class="bg-[#F1EFFF] w-[30px] h-[30px] rounded-full flex items-center justify-center"
+            >
+              <a href="#">
+                <img
+                  src="/whatsapp.png"
+                  class="w-[13.13px] h-[15px]"
+                  alt="whatsapp"
+                /></a
+              >
+            </div>
+            <div
+              class="bg-[#F1EFFF] w-[30px] h-[30px] rounded-full flex items-center justify-center"
+            >
+              <a href="#">
+                <img
+                  src="/instagram.png"
+                  class="w-[13.13px] h-[15px]"
+                  alt="instagram"
+                /></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 p-[10px] flex flex-col font-semibold gap-5">
+          <h2>RESOURCES</h2>
+          <div>
+            <p class="mb-[14.4px] text-[12px]">Home</p>
+            <p class="mb-[14.4px] text-[12px]">For School</p>
+            <p class="mb-[14.4px] text-[12px]">Blogs</p>
+          </div>
+        </div>
+        <div class="flex-1 p-[10px] flex flex-col font-semibold gap-5">
+          <h2>SUBJECTS</h2>
+          <div>
+            <p class="mb-[14.4px] text-[12px]"><a href="https://www.up-skool.com/blog/how-can-upskool-improve-math-for-your-child/">Maths</a></p>
+            <p class="mb-[14.4px] text-[12px]"><a href="https://www.up-skool.com/blog/top-8-ways-how-upskool-can-improve-english-for-your-child/">English</a></p>
+			<p class="mb-[14.4px] text-[12px]">Science</p>
+            
+		</div>
+        </div>
+        <div class="flex-1 p-[10px] flex flex-col font-semibold gap-5">
+          <h2>LINKS</h2>
+          <div>
+            <p class="mb-[14.4px] text-[12px]">Terms of Use</p>
+            <p class="mb-[14.4px] text-[12px]">Privacy Policy</p>
+            <p class="mb-[14.4px] text-[12px]">Cancellation and Refund</p>
+          </div>
+        </div>
+        <div class="flex-1 p-[10px] flex flex-col font-semibold gap-5">
+          <h2>CONTACT US</h2>
+          <ul>
+            <li class="pb-[3px] text-[12px] flex">
+                <span class="pr-[6px]"
+                  ><img src="/emailfooter.png" alt="emailfooter" /></span
+                ><a
+				href="mailto:contact@up-skool.com?subject=Seeking%20More%20Information&body=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Up-Skool%27s%20services
+						  "
+				>contact@up-skool.com</a
+				>
+              </li>
+            <a href="tel:6292005000"
+              ><li class="pb-[3px] text-[12px] flex">
+                <span class="pr-[6px]"
+                  ><img src="/phonefooter.png" alt="phonefooter" /></span
+                > +91 6292005000
+              </li></a
+            >
+          </ul>
+        </div>
+      </div>
+      <div class="p-[10px] border-t-[1px]">
+        <h2 class="text-center text-sm">
+          &#169;Copyright 2023 Up-Skool -All Rights Reserved
+        </h2>
+      </div>
+    </footer>
+    <!-- <script is:inline src="../scripts/clipboard.js"></script> -->
+    <script is:inline>
+
+      ///////////////////////////////////////////////////////////
+      function showsignupform() {
+        document
+          .querySelector(".overlaycontainer")
+          .classList.replace(`opacity-0`, `opacity-1`);
+        document
+          .querySelector(".overlaycontainer")
+          .classList.replace(`-z-50`, `z-50`);
+        document
+          .querySelector(".overlaysignupform")
+          .classList.replace("-top-[150%]", "top-[0%]");
+      }
+      function showtryfreeform() {
+        document
+          .querySelector(".overlaycontainer")
+          .classList.replace(`opacity-0`, `opacity-1`);
+        document
+          .querySelector(".overlaycontainer")
+          .classList.replace(`-z-50`, `z-50`);
+        document
+          .querySelector(".overlaytryform")
+          .classList.replace("-top-[150%]", "top-[0%]");
+      }
+      function opensidebar(){
+        document
+          .querySelector(".menu-mobile")
+          .classList.replace("hidden", "block");
+      }
+      function toggledropdown(){
+        document
+          .querySelector(".showdropdown")
+          .classList.toggle( "hidden");
+      }
+      function closesidebar(){
+        document
+          .querySelector(".menu-mobile")
+          .classList.replace("block", "hidden");
+      }
+    </script>
+  </body>
+</Layout>
