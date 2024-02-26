@@ -9,9 +9,9 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   site: "https:/Ujjawal-Chaurasia/.github.io",
   base: "/Up-skool",
-  output: "server",
+  output: "static",
   integrations: [tailwind(), react()],
   adapter: netlify({
-    edgeMiddleware: true,
+    // edgeMiddleware: true,
   }),
 });
