@@ -7,8 +7,8 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https:/Ujjawal-Chaurasia/.github.io",
-  base: "/Up-skool",
+  // site: "https:/Ujjawal-Chaurasia/.github.io",
+  // base: "/Up-skool",
   output: "static",
   integrations: [tailwind(), react()],
   adapter: netlify({
